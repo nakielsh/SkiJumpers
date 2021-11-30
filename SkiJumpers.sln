@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zawodnicy.Core", "Zawodnicy.Core\Zawodnicy.Core.csproj", "{DE69CB3E-8161-45E0-919C-80D52CB653E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zawodnicy.Infrastructure", "Zawodnicy.Infrastructure\Zawodnicy.Infrastructure.csproj", "{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zawodnicy.WebAPI", "Zawodnicy.WebAPI\Zawodnicy.WebAPI.csproj", "{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Debug|x86.Build.0 = Debug|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|x64.Build.0 = Release|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE69CB3E-8161-45E0-919C-80D52CB653E9}.Release|x86.Build.0 = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|x64.Build.0 = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Debug|x86.Build.0 = Debug|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|x64.ActiveCfg = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|x64.Build.0 = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|x86.ActiveCfg = Release|Any CPU
+		{52CFDD4F-8AA3-4EE5-BD05-C38D0DC28BF7}.Release|x86.Build.0 = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|x64.Build.0 = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Debug|x86.Build.0 = Debug|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x64.ActiveCfg = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x64.Build.0 = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x86.ActiveCfg = Release|Any CPU
+		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+		$0.VersionControlPolicy = $3
+	EndGlobalSection
+EndGlobal
