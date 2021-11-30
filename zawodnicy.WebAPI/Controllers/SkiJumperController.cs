@@ -68,6 +68,7 @@ namespace Zawodnicy.WebAPI.Controllers
         {
             await _skiJumperService.Delete(id);
             return NoContent();
+
         }
     }
 }
