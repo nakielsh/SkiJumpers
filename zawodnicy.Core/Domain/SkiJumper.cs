@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 namespace Zawodnicy.Core.Domain
 {
     public class SkiJumper
@@ -15,6 +17,11 @@ namespace Zawodnicy.Core.Domain
 
         public SkiJumper()
         {
+        }
+
+        public static explicit operator Task<object>(SkiJumper v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

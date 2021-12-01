@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Zawodnicy.Infrastructure.Commands;
@@ -68,7 +66,6 @@ namespace Zawodnicy.WebAPI.Controllers
         {
             await _skiJumperService.Delete(id);
             return NoContent();
-
         }
     }
 }
