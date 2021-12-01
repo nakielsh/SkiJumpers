@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zawodnicy.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zawodnicy.WebAPI", "Zawodnicy.WebAPI\Zawodnicy.WebAPI.csproj", "{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service.test", "api.test\service.test.csproj", "{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "service.test", "api.test\service.test.csproj", "{B8E93F90-763B-4876-9747-D60223A07838}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,18 +60,18 @@ Global
 		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x64.Build.0 = Release|Any CPU
 		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x86.ActiveCfg = Release|Any CPU
 		{97BC913A-7898-4BFD-8D11-1DAC78F1B35F}.Release|x86.Build.0 = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|x64.Build.0 = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Debug|x86.Build.0 = Debug|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|x64.ActiveCfg = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|x64.Build.0 = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|x86.ActiveCfg = Release|Any CPU
-		{BF83061B-1F7C-4D8F-BB08-3CA35E3A5796}.Release|x86.Build.0 = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|x64.Build.0 = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|x64.ActiveCfg = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|x64.Build.0 = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8E93F90-763B-4876-9747-D60223A07838}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
