@@ -11,10 +11,10 @@ namespace Zawodnicy.Infrastructure.Services
     {
         Task<IEnumerable<SkiJumperDTO>> BrowseAllAsync();
         Task<SkiJumperDTO> GetAsync(int id);
-        Task<IEnumerable<SkiJumperDTO>> BrowseAllByFilter(string country, string name);
-        Task<SkiJumperDTO> Add(CreateSkiJumper createSkiJumper);
-        Task<SkiJumperDTO> Delete(int id);
-        Task<SkiJumperDTO> Update(UpdateSkiJumper updateSkiJumper, int id);
+        Task<IEnumerable<SkiJumperDTO>> BrowseAllByFilterAsync(string country, string name);
+        Task AddAsync(CreateSkiJumper createSkiJumper);
+        Task DeleteAsync(int id);
+        Task<SkiJumperDTO> UpdateAsync(UpdateSkiJumper updateSkiJumper, int id);
 
     }
 }

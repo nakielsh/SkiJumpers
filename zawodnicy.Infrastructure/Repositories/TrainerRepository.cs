@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Zawodnicy.Core.Domain;
 using Zawodnicy.Core.Repositories;
@@ -8,28 +9,85 @@ namespace Zawodnicy.Infrastructure.Repositories
 {
     public class TrainerRepository : ITrainerRepository
     {
-        public TrainerRepository()
+
+        private AppDbContext _appDbContext;
+
+        public TrainerRepository(AppDbContext appDbContext)
         {
+            _appDbContext = appDbContext;
         }
 
-        public Task AddAsync(Trainer t)
+        public async Task AddAsync(Trainer t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                t.Id = _appDbContext.Trainer.Count() + 1;
+
+                _appDbContext.Trainer.Add(t);
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
         }
 
-        public Task<IEnumerable<Trainer>> BrowseAllAcync()
+        public async Task<IEnumerable<Trainer>> BrowseAllAsync()
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(_appDbContext.Trainer);
         }
 
-        public Task DelAsync(Trainer t)
+        public async Task<IEnumerable<Trainer>> BrowseAllByFilterAsync(string firstname, string lastname)
         {
-            throw new NotImplementedException();
+            var t = _appDbContext.Trainer.Where(x => x.FirstName.Contains(firstname) || x.LastName.Contains(lastname)).AsEnumerable();
+            return await Task.FromResult(t);
         }
 
-        public Task<Trainer> GetAsync(int id)
+        public async Task DelAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.Remove(_appDbContext.Trainer.FirstOrDefault(x => x.Id == id));
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
+        }
+
+        public async Task<Trainer> GetAsync(int id)
+        {
+            try
+            {
+                var t = _appDbContext.Trainer.FirstOrDefault(x => x.Id == id);
+                return await Task.FromResult(t);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task UpdateAsync(Trainer t)
+        {
+            try
+            {
+                var found = _appDbContext.Trainer.FirstOrDefault(x => x.Id == t.Id);
+
+                found.FirstName = t.FirstName;
+                found.LastName = t.LastName;
+                found.BirthDate = t.BirthDate;
+
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
         }
     }
 }

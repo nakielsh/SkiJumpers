@@ -8,100 +8,88 @@ using Zawodnicy.Core.Repositories;
 namespace Zawodnicy.Infrastructure.Repositories
 {
     public class SkiJumperRepository : ISkiJumperRepository
-
     {
-        public static List<SkiJumper> _skiJumperMock = new List<SkiJumper>();
-        public SkiJumperRepository()
+
+        private AppDbContext _appDbContext;
+
+        public SkiJumperRepository(AppDbContext appDbContext)
         {
-            var skiJumper1 = new SkiJumper()
-            {
-                Id = 1,
-                Name = "Alan",
-                ForeName = "G",
-                Country = "pol",
-                Weight = 170
-            };
-
-            var skiJumper2 = new SkiJumper()
-            {
-                Id = 2,
-                Name = "Adam",
-                ForeName = "P",
-                Country = "ger",
-                Weight = 172
-            };
-
-            var skiJumper3 = new SkiJumper()
-            {
-                Id = 3,
-                Name = "Martin",
-                ForeName = "S",
-                Country = "fin",
-                Weight = 172
-            };
-
-            if (_skiJumperMock.Count < 3)
-            {
-                _skiJumperMock.Clear();
-                _skiJumperMock.Add(skiJumper1);
-                _skiJumperMock.Add(skiJumper2);
-                _skiJumperMock.Add(skiJumper3);
-            }
-
+            _appDbContext = appDbContext;
         }
+        
 
-        public async Task<SkiJumper> Add(SkiJumper s)
+        public async Task AddAsync(SkiJumper s)
         {
-            s.Id = _skiJumperMock.Count + 1;
-            _skiJumperMock.Add(s);
-            return await GetAsync(s.Id);
+            try
+            {
+                s.Id = _appDbContext.SkiJumper.Count() + 1;
+
+                _appDbContext.SkiJumper.Add(s);
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
         }
 
         public async Task<IEnumerable<SkiJumper>> BrowseAllAsync()
         {
-            return await Task.FromResult(_skiJumperMock);
+            return await Task.FromResult(_appDbContext.SkiJumper);
         }
 
-        public async Task<IEnumerable<SkiJumper>> BrowseAllByFilter(string country, string name)
+        public async Task<IEnumerable<SkiJumper>> BrowseAllByFilterAsync(string country, string name)
         {
-            var s = _skiJumperMock.Where(x => x.Country.Contains(country) || x.Name.Contains(name)).AsEnumerable();
+            var s = _appDbContext.SkiJumper.Where(x => x.Country.Contains(country) || x.Name.Contains(name)).AsEnumerable();
             return await Task.FromResult(s);
         }
 
-        public async Task<SkiJumper> DelAsync(SkiJumper s)
+        public async Task DelAsync(int id)
         {
-            _skiJumperMock.Remove(s);
-            return await Task.FromResult(s);
+            try
+            {
+                _appDbContext.Remove(_appDbContext.SkiJumper.FirstOrDefault(x => x.Id == id));
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
         }
 
         public async Task<SkiJumper> GetAsync(int id)
         {
-            var skiJumper = _skiJumperMock.Where(x => x.Id == id);
-            if (skiJumper.Count() > 0)
+            try
             {
-                return await Task.FromResult(skiJumper.First());
-            } else
-            {
-                throw new DllNotFoundException();
+                var skiJumper = _appDbContext.SkiJumper.FirstOrDefault(x => x.Id == id);
+                return await Task.FromResult(skiJumper);
             }
-            
+            catch (Exception ex)
+            {
+                 throw ex;
+            }
         }
 
-        public async Task<SkiJumper> UpdateAsync(SkiJumper s)
+        public async Task UpdateAsync(SkiJumper s)
         {
-            var found = _skiJumperMock.FirstOrDefault(x => x.Id == s.Id);
-            if (found != null)
+            try
             {
+                var found = _appDbContext.SkiJumper.FirstOrDefault(x => x.Id == s.Id);
+
                 found.Height = s.Height;
                 found.ForeName = s.ForeName;
                 found.Country = s.Country;
                 found.Weight = s.Weight;
-                return await Task.FromResult(found);
-            } else
-            {
-                throw new DllNotFoundException();
-            }
 
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                await Task.FromException(ex);
+            }
         }
     }
 }

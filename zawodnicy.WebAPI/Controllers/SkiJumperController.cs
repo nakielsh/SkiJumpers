@@ -43,28 +43,28 @@ namespace Zawodnicy.WebAPI.Controllers
         [HttpGet("filter")]
         public async Task<IActionResult> GetSkiJumper(string country, string name)
         {
-            var skiJumperList = await _skiJumperService.BrowseAllByFilter(country, name);
+            var skiJumperList = await _skiJumperService.BrowseAllByFilterAsync(country, name);
             return Json(skiJumperList);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddSkiJumper([FromBody] CreateSkiJumper skiJumper)
         {
-            var returnedSkiJumper = await _skiJumperService.Add(skiJumper);
-            return CreatedAtAction(null, returnedSkiJumper);
+            await _skiJumperService.AddAsync(skiJumper);
+            return NoContent();
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSkiJumper([FromBody] UpdateSkiJumper skiJumper, int id)
         {
-            await _skiJumperService.Update(skiJumper, id);
+            await _skiJumperService.UpdateAsync(skiJumper, id);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSkiJumper(int id)
         {
-            await _skiJumperService.Delete(id);
+            await _skiJumperService.DeleteAsync(id);
             return NoContent();
         }
     }

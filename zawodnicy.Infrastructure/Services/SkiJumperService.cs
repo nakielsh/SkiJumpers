@@ -56,9 +56,9 @@ namespace Zawodnicy.Infrastructure.Services
             };
         }
 
-        public async Task<IEnumerable<SkiJumperDTO>> BrowseAllByFilter(string country, string name)
+        public async Task<IEnumerable<SkiJumperDTO>> BrowseAllByFilterAsync(string country, string name)
         {
-            var skiJumperList = await _skiJumperRepository.BrowseAllByFilter(country, name);
+            var skiJumperList = await _skiJumperRepository.BrowseAllByFilterAsync(country, name);
 
             //automapper
             return skiJumperList.Select(x => new SkiJumperDTO()
@@ -74,7 +74,7 @@ namespace Zawodnicy.Infrastructure.Services
             });
         }
 
-        public async Task<SkiJumperDTO> Add(CreateSkiJumper createSkiJumper)
+        public async Task AddAsync(CreateSkiJumper createSkiJumper)
         {
             var skiJumper = new SkiJumper()
             {
@@ -84,40 +84,17 @@ namespace Zawodnicy.Infrastructure.Services
                 Weight = createSkiJumper.Weight
             };
 
-            var returnedSkiJumper = await _skiJumperRepository.Add(skiJumper);
-            return new SkiJumperDTO()
-            {
-                Id = returnedSkiJumper.Id,
-                Country = returnedSkiJumper.Country,
-                Name = returnedSkiJumper.Name,
-                BirthDate = returnedSkiJumper.BirthDate,
-                ForeName = returnedSkiJumper.ForeName,
-                Weight = returnedSkiJumper.Weight,
-                Height = returnedSkiJumper.Height
-
-            };
+            await _skiJumperRepository.AddAsync(skiJumper);
 
         }
 
-        public async Task<SkiJumperDTO> Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var toDelete = await _skiJumperRepository.GetAsync(id);
-            var deleted = await _skiJumperRepository.DelAsync(toDelete);
+            await _skiJumperRepository.DelAsync(id);
 
-            return new SkiJumperDTO()
-            {
-                Id = deleted.Id,
-                Country = deleted.Country,
-                Name = deleted.Name,
-                BirthDate = deleted.BirthDate,
-                ForeName = deleted.ForeName,
-                Weight = deleted.Weight,
-                Height = deleted.Height
-
-            };
         }
 
-        public async Task<SkiJumperDTO> Update(UpdateSkiJumper updateSkiJumper, int id)
+        public async Task<SkiJumperDTO> UpdateAsync(UpdateSkiJumper updateSkiJumper, int id)
         {
             var skiJumper = new SkiJumper()
             {
@@ -128,7 +105,8 @@ namespace Zawodnicy.Infrastructure.Services
                 Weight = updateSkiJumper.Weight
             };
 
-            var updated = await _skiJumperRepository.UpdateAsync(skiJumper);
+            await _skiJumperRepository.UpdateAsync(skiJumper);
+            var updated = await _skiJumperRepository.GetAsync(id);
 
             return new SkiJumperDTO()
             {
