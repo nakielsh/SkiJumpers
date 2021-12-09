@@ -79,7 +79,7 @@ namespace Zawodnicy.Infrastructure.Services
         {
             var trainer = new Trainer()
             {
-                Id = updateTrainer.Id,
+                Id = id,
                 FirstName = updateTrainer.FirstName,
                 LastName = updateTrainer.LastName,
                 BirthDate = updateTrainer.BirthDate
@@ -90,10 +90,10 @@ namespace Zawodnicy.Infrastructure.Services
 
             return new TrainerDTO()
             {
-                Id = trainer.Id,
-                FirstName = trainer.FirstName,
-                LastName = trainer.LastName,
-                BirthDate = trainer.BirthDate
+                Id = updated.Id,
+                FirstName = updated.FirstName,
+                LastName = updated.LastName,
+                BirthDate = updated.BirthDate
             };
         }
     }
