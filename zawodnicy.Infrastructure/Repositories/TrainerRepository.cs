@@ -21,8 +21,6 @@ namespace Zawodnicy.Infrastructure.Repositories
         {
             try
             {
-                //t.Id = _appDbContext.Trainer.Count() + 1;
-
                 _appDbContext.Trainer.Add(t);
                 _appDbContext.SaveChanges();
                 await Task.CompletedTask;

@@ -22,8 +22,6 @@ namespace Zawodnicy.Infrastructure.Repositories
         {
             try
             {
-                //s.Id = _appDbContext.SkiJumper.Count() + 1;
-
                 _appDbContext.SkiJumper.Add(s);
                 _appDbContext.SaveChanges();
                 await Task.CompletedTask;
