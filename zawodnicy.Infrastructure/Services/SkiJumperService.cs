@@ -81,7 +81,9 @@ namespace Zawodnicy.Infrastructure.Services
                 Name = createSkiJumper.Name,
                 ForeName = createSkiJumper.ForeName,
                 Country = createSkiJumper.Country,
-                Weight = createSkiJumper.Weight
+                BirthDate = createSkiJumper.BirthDate,
+                Weight = createSkiJumper.Weight,
+                Height = createSkiJumper.Height
             };
 
             await _skiJumperRepository.AddAsync(skiJumper);
@@ -99,10 +101,12 @@ namespace Zawodnicy.Infrastructure.Services
             var skiJumper = new SkiJumper()
             {
                 Id = id,
+                Name = updateSkiJumper.Name,
                 Height = updateSkiJumper.Height,
                 ForeName = updateSkiJumper.ForeName,
                 Country = updateSkiJumper.Country,
-                Weight = updateSkiJumper.Weight
+                Weight = updateSkiJumper.Weight,
+                BirthDate = updateSkiJumper.BirthDate
             };
 
             await _skiJumperRepository.UpdateAsync(skiJumper);

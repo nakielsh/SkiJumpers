@@ -76,10 +76,12 @@ namespace Zawodnicy.Infrastructure.Repositories
             {
                 var found = _appDbContext.SkiJumper.FirstOrDefault(x => x.Id == s.Id);
 
+                found.Name = s.Name;
                 found.Height = s.Height;
                 found.ForeName = s.ForeName;
                 found.Country = s.Country;
                 found.Weight = s.Weight;
+                found.BirthDate = s.BirthDate;
 
                 _appDbContext.SaveChanges();
                 await Task.CompletedTask;
