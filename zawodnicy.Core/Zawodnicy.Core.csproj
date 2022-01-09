@@ -7,9 +7,13 @@
   <ItemGroup>
     <None Remove="Domain\" />
     <None Remove="Repositories\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
   </ItemGroup>
 </Project>

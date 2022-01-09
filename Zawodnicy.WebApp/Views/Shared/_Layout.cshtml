@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,6 +27,67 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SkiJumper" asp-action="Index">Lista Zawodnikow</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Trainer" asp-action="Index">Lista Trenerow</a>
+                        </li>
+                        @*Tajne dla roli wazny lub zarzadca*@
+                        @{
+                            if (User.IsInRole("zarzadca") || User.IsInRole("wazny"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-alert-link text-dark" asp-area="" asp-controller="Tajne" asp-action="Index">Materialy</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-link text-dark">
+                                    <span style="color:darkgray">Materialy</span>"
+                                </li>
+                            }
+                        }
+
+                        @*Panel administracyjny TYLKO dla roli "zarzadca"*@
+                        @{
+                            if (User.IsInRole("zarzadca"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-alert-link text-dark" asp-area="" asp-controller="PanelAdministracyjny" asp-action="Index">Panel administracyjny</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-link text-dark">
+                                    <span style="color:darkgray">Panel administracyjny</span>
+                                </li>
+                            }
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Zarejestruj sie</a>
+                        </li>
+
+                        @*Wylogowanie, Zalogowanie, Zalogowany user*@
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-link text-dark">
+                                Witaj @User.Identity.Name
+                            </li>
+
+                            <li class="nav-link text-dark">
+                                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-right">
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Zaloguj się</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

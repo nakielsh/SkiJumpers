@@ -9,6 +9,8 @@
     <None Remove="Services\" />
     <None Remove="DTO\" />
     <None Remove="Commands\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
@@ -20,7 +22,6 @@
     <ProjectReference Include="..\Zawodnicy.Core\Zawodnicy.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -30,5 +31,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
   </ItemGroup>
 </Project>
